@@ -13,4 +13,5 @@ class RabbitMqAutoConfiguration {
 	RabbitMqHelper rabbitMqHelper(AmqpAdmin amqpAdmin) {
 		return new RabbitMqHelper(amqpAdmin);
 	}
+
 }
