@@ -13,11 +13,4 @@ class RabbitMqAutoConfiguration {
 	RabbitMqHelper rabbitMqHelper(AmqpAdmin amqpAdmin) {
 		return new RabbitMqHelper(amqpAdmin);
 	}
-
-	@Bean
-	@ConditionalOnMissingBean
-	RabbitMqEnvironmentPostProcessor rabbitMqEnvironmentPostProcessor() {
-		return new RabbitMqEnvironmentPostProcessor();
-	}
-
 }
