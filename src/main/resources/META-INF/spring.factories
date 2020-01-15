@@ -1,2 +1,1 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  fm.bootifulpodcast.rabbitmq.RabbitMqAutoConfiguration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=fm.bootifulpodcast.rabbitmq.RabbitMqAutoConfiguration
