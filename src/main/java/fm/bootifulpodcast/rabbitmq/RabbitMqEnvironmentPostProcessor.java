@@ -71,7 +71,7 @@ public class RabbitMqEnvironmentPostProcessor implements EnvironmentPostProcesso
 		}
 
 		var newMap = new HashMap<String, Object>();
-		map.forEach((p, k) -> newMap.put("spring.fm.bootifulpodcast.rabbitmq." + p, k));
+		map.forEach((p, k) -> newMap.put("spring.rabbitmq." + p, k));
 
 		var propertySource = new PropertySource<String>("rmq-environment") {
 
