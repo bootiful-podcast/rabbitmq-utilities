@@ -13,12 +13,25 @@ import java.util.HashMap;
 @Log4j2
 public class RabbitMqEnvironmentPostProcessor implements EnvironmentPostProcessor {
 
+	private String replacePeriodsWithUnderscores(String x) {
+		var sb = new StringBuilder();
+		for (var i = 0; i < x.length(); i++) {
+			if (x.charAt(i) == '.') {
+				sb.append('_');
+			}
+			else {
+				sb.append(x);
+			}
+		}
+		return sb.toString();
+	}
+
 	@Override
 	public void postProcessEnvironment(ConfigurableEnvironment env,
 			SpringApplication application) {
 
-		var configurationKey = "rmq.address";
-		var envVariable = "RMQ_ADDRESS";
+		var configurationKey = "podcast.rmq.address";
+		var envVariable = replacePeriodsWithUnderscores(configurationKey).toUpperCase();
 		var resolvedEnvironmentProperty = System.getenv(envVariable);
 		var resolvedConfigurationProperty = env.getProperty(configurationKey);
 		var rmqAddress = StringUtils.hasText(resolvedEnvironmentProperty)
@@ -26,7 +39,7 @@ public class RabbitMqEnvironmentPostProcessor implements EnvironmentPostProcesso
 				: (StringUtils.hasText(resolvedConfigurationProperty)
 						? resolvedConfigurationProperty : null);
 
-		log.debug("RMQ_ADDRESS: " + rmqAddress
+		log.debug("PODCAST_RMQ_ADDRESS: " + rmqAddress
 				+ ". Detected RMQ_ADDRESS environment variable");
 
 		if (!StringUtils.hasText(rmqAddress)) {
