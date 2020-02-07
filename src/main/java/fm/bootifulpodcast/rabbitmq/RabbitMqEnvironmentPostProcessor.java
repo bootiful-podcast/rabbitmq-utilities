@@ -13,14 +13,14 @@ import java.util.HashMap;
 @Log4j2
 public class RabbitMqEnvironmentPostProcessor implements EnvironmentPostProcessor {
 
-	private String replacePeriodsWithUnderscores(String x) {
+	private String replacePeriodsWithUnderscores(String inputString) {
 		var sb = new StringBuilder();
-		for (var i = 0; i < x.length(); i++) {
-			if (x.charAt(i) == '.') {
+		for (var i = 0; i < inputString.length(); i++) {
+			if (inputString.charAt(i) == '.') {
 				sb.append('_');
 			}
 			else {
-				sb.append(x);
+				sb.append(inputString);
 			}
 		}
 		return sb.toString();
