@@ -1,13 +1,11 @@
-# Build the Podbean Client
 
-name: Podbean Client
+
+name: RabbitMQ Utilities
 
 env:
   ARTIFACTORY_API_TOKEN_SECRET: ${{ secrets.ARTIFACTORY_API_TOKEN_SECRET }}
   ARTIFACTORY_USERNAME: ${{ secrets.ARTIFACTORY_USERNAME  }}
   ARTIFACTORY_PASSWORD: ${{ secrets.ARTIFACTORY_PASSWORD  }}
-  PODBEAN_CLIENT_SECRET: ${{ secrets.PODBEAN_CLIENT_SECRET }}
-  PODBEAN_CLIENT_ID: ${{ secrets.PODBEAN_CLIENT_ID }}
 
 on:
   push:
