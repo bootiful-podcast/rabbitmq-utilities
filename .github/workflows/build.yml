@@ -35,4 +35,4 @@ jobs:
           restore-keys: ${{ runner.os }}-m2
 
       - name: Build the application and deploy
-        run: mvn -B -V -U  -X -e -DskipTests=true -Dmaven.javadoc.skip=true verify package deploy
+        run: mvn verify package deploy
